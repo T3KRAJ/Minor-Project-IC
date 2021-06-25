@@ -1,0 +1,46 @@
+*.pyc
+/backend/db.sqlite3
+.DS_Store
+.env
+*/settings/local.py
+/staticfiles/*
+/mediafiles/*
+__pycache__/
+/.vscode/
+
+# coverage result
+.coverage
+/coverage/
+
+# pycharm
+.idea/
+
+# data
+*.dump
+
+# npm
+node_modules/
+client/node_modules/
+
+npm-debug.log
+
+# Webpack
+/client/bundles/*
+/client/webpack_bundles/*
+/webpack-stats.json
+
+# Sass
+.sass-cache
+*.map
+
+# General
+/env/
+/output/
+/cache/
+
+# Spritesmith
+spritesmith-generated/
+spritesmith.scss
+
+# templated email
+tmp_email/
