@@ -7,7 +7,7 @@ To identify and portray an object of particular class from the collection of obj
 Given a set of images containing object of different classes. The classes are completely mutually exclusive. It is required to identify the class of the object in an image by automating this entire process and quickly label images per their corresponding class.
 
 ## Block Diagram
-![block-diagram](img/blockdiagram(IC).jpg)
+![block-diagram](Img/blockdiagram(IC).jpg)
 
 ## Project Methodology
 - To develop full stack web app using Django and React.js
