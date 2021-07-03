@@ -26,7 +26,6 @@ const Classifier:React.FC = () => {
           {file.name} - {file.size} bytes
         </li>
         ))
-  console.log(files)
     return (
         <Dropzone onDrop={acceptedFiles => onDrop(acceptedFiles)} >
         {({isDragActive,getRootProps, getInputProps}) => (
