@@ -1,0 +1,12 @@
+.main{
+    padding:32px 0px;
+    background:#f8f8f8;
+    border:3px dashed #332f2f;
+    border-radius: 12px;
+    margin:25px 5px;
+    outline: none;
+    cursor: pointer;
+}
+.main:hover{
+    border:3px dashed #397f8bec;
+}
