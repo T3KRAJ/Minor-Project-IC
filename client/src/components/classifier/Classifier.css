@@ -1,4 +1,10 @@
+html{
+    min-height:min-content;
+    background:#ecf0f1;
+}
+
 .main{
+    background-color: #332f2f;
     padding:32px 0px;
     background:#f8f8f8;
     border:3px dashed #332f2f;
@@ -17,4 +23,18 @@
 }
 .file{
     text-align: center;
+}
+.result{
+    width: 550px;
+    height: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 130px 0 10px -160px;
+}
+.spiner{
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    margin: 130px 0 10px -160px;
 }

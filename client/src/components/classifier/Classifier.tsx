@@ -6,12 +6,14 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
 import { Button } from "@material-ui/core";
+import  ImagesCard  from "../Images"
 
 const Classifier: React.FC = () => {
+  
   const [files, setFiles] = useState<any[]>([]);
-
   const [recentImg, setRecentImg] = useState<any | null>(null);
   const [loading, setLoading] = useState(false);
+  const result:any = []
 
   const onDrop = (acceptedFiles: any) => {
     Loadimage(acceptedFiles);
@@ -41,6 +43,26 @@ const Classifier: React.FC = () => {
         console.log(err);
         setLoading(false);
       });
+      
+      
+        axios
+        .get(`http://127.0.0.1:8000/api/images`, {
+          headers: {
+            accept: "application/json",
+          },
+        })
+        .then((res) => {
+          // console.log(res.data)
+          result.push(res.data)
+        })
+        .catch((err) => {
+          console.log(err);
+         setLoading(false);
+
+        });
+      
+     
+        
   };
 
   const getImageClass = (obj: any) => {
@@ -53,7 +75,8 @@ const Classifier: React.FC = () => {
       .then((resp) => {
         setRecentImg(resp.data);
         setLoading(false);
-        console.log(recentImg);
+        setFiles([]);
+        // console.log(recentImg);
       })
       .catch((err) => {
         console.log(err);
@@ -94,11 +117,19 @@ const Classifier: React.FC = () => {
             </Container>
           )}
         </Dropzone>
-        <div>{loading && <CircularProgress color="secondary" />}</div>
+        <div className = "spiner">{loading && <CircularProgress color="secondary" />}</div>
         {recentImg && (
           <React.Fragment>
-            <img src={`http://127.0.0.1:8000${recentImg.picture}`} />
-            <p>{recentImg.result}</p>
+            { 
+            result.map((value:any,index:any) => (
+            <div className = "result" key={value.id}>
+            <ImagesCard 
+               source={value.picture} 
+               result={value.result}
+            />
+            </div>
+            ))
+            }
           </React.Fragment>
         )}
       </React.Fragment>
