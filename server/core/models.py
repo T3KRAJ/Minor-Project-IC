@@ -28,4 +28,4 @@ class Image(models.Model):
             print('Success')
         except Exception as e:
             print(f"Classification Failed {e}")
-        super().save(*args, **kwargs)
+        super(Image, self).save(*args, **kwargs)
