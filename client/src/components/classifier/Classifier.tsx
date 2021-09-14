@@ -81,9 +81,10 @@ const Classifier: React.FC = () => {
                     : "Drag and drop image here, or click to select image"}
                 </p>
               </div>
-              <h4>{file}</h4>
+              <h4 className="details">{file}</h4>
               {files.length > 0 && (
                 <Button
+                 className = "button"
                   variant="contained"
                   color="primary"
                   onClick={() => sendImage()}
@@ -107,7 +108,7 @@ const Classifier: React.FC = () => {
             }
           </React.Fragment>
         )}
-      <RecentImgs />
+      <RecentImgs/>
 
       </React.Fragment>
     </>

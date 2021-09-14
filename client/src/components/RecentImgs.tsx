@@ -36,6 +36,7 @@ const RecentImgs: React.FC = () => {
     
     return (
         <>
+        <div className="recent">
             <h3 className="text-center align-center heading">Recent Classified Images</h3>
             {loading ? 
                 <div className = "spiner"><CircularProgress color="secondary" /></div>:
@@ -49,6 +50,7 @@ const RecentImgs: React.FC = () => {
             </div>
           </div>
                 }
+        </div>        
         </>
     )
 }
