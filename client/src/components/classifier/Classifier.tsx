@@ -7,23 +7,21 @@ import Container from "@material-ui/core/Container";
 import axios from "axios";
 import { Button } from "@material-ui/core";
 import  ImagesCard  from "../Images"
+import RecentImgs from "../RecentImgs";
 
 const Classifier: React.FC = () => {
   
   const [files, setFiles] = useState<any[]>([]);
   const [recentImg, setRecentImg] = useState<any | null>(null);
   const [loading, setLoading] = useState(false);
-  const result:any = []
 
   const onDrop = (acceptedFiles: any) => {
-    Loadimage(acceptedFiles);
-  };
-
-  const Loadimage = (acceptedFiles: any) => {
     setInterval(() => {
       setFiles(acceptedFiles);
     }, 1000);
+    console.log(files)
   };
+
 
   const sendImage = () => {
     setLoading(true);
@@ -43,26 +41,6 @@ const Classifier: React.FC = () => {
         console.log(err);
         setLoading(false);
       });
-      
-      
-        axios
-        .get(`http://127.0.0.1:8000/api/images`, {
-          headers: {
-            accept: "application/json",
-          },
-        })
-        .then((res) => {
-          // console.log(res.data)
-          result.push(res.data)
-        })
-        .catch((err) => {
-          console.log(err);
-         setLoading(false);
-
-        });
-      
-     
-        
   };
 
   const getImageClass = (obj: any) => {
@@ -75,8 +53,6 @@ const Classifier: React.FC = () => {
       .then((resp) => {
         setRecentImg(resp.data);
         setLoading(false);
-        setFiles([]);
-        // console.log(recentImg);
       })
       .catch((err) => {
         console.log(err);
@@ -88,6 +64,7 @@ const Classifier: React.FC = () => {
       {file.name} - {file.size} bytes
     </h3>
   ));
+  console.log(recentImg)
 
   return (
     <>
@@ -121,17 +98,17 @@ const Classifier: React.FC = () => {
         {recentImg && (
           <React.Fragment>
             { 
-            result.map((value:any,index:any) => (
-            <div className = "result" key={value.id}>
-            <ImagesCard 
-               source={value.picture} 
-               result={value.result}
-            />
+            <div className = "result">
+              <ImagesCard 
+                source={`http://127.0.0.1:8000${recentImg.picture}`} 
+                result={recentImg.result}
+              />
             </div>
-            ))
             }
           </React.Fragment>
         )}
+      <RecentImgs />
+
       </React.Fragment>
     </>
   );

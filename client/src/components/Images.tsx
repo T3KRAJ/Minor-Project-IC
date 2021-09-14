@@ -28,59 +28,22 @@ const useStyles = makeStyles({
   }
 const ImagesCard: React.FC<Props> = (props): JSX.Element  => {
   const classes = useStyles();
-  console.log(props.source)
   return (
-
         <Card className={classes.root}>
           <CardActionArea>
             <CardMedia
               className={classes.media}
-              image='http://127.0.0.1:8000/media/download_UDs98Ck.jfif'
+              image={props.source}
               title={props.result}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
               {props.result}
-              hellp[-]
               </Typography>
-             
             </CardContent>
           </CardActionArea>
-        
         </Card>
       );
 }
 export default ImagesCard
-// import axios from 'axios'
-// import React, { useEffect, useState } from 'react'
-// // import ImageCard from './ImageCard'
-
-// const Images: React.FC = () => {
-//     const [images, setImages] = useState([])
-//     const [loading, setLoading] = useState(true)
-//     const [visible, setVisible] = useState(2)
-
-
-//     useEffect(() => {
-//         axios.get('http://127.0.0.1:8000/api/images/', {
-//             headers: {
-//                 accept: 'application/json'
-//             }
-//         }).then(res => {
-//             setImages(res.data)
-//             setLoading(false)
-//             console.log(res.data)
-//         })
-//     },[])
-
-//     return (
-//         <div>
-//             {/* {images.map(img => {
-//                 <ImageCard key={img.id} pic={img.picture} name={img.result} />
-//             })} */}
-//         </div>
-//     )
-// }
-
-// export default Images
 
