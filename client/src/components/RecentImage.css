@@ -1,0 +1,28 @@
+.top{
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    margin: 10px 0 0 -10px;
+}
+.heading{
+    padding: 20 0 70 0;
+    text-align: center;
+    z-index: 7;
+    align-items: center;
+    text-decoration: underline;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 540px 540px ;
+    /* background-color: #2196F3; */
+    padding: 0px;
+  }
+  .grid-item {
+    /* background-color: #ecf0f1; */
+    /* border: 0px solid rgba(206, 206, 206, 0.8); */
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+  }

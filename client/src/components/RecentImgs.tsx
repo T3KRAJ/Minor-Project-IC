@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import ImagesCard from './Images'
 import { CircularProgress } from '@material-ui/core'
+import "./RecentImage.css"
+
+
+
 
 const RecentImgs: React.FC = () => {
     const [imgs, setImgs] = useState<any| []>([])
@@ -32,16 +36,19 @@ const RecentImgs: React.FC = () => {
     
     return (
         <>
-            <h3 className="text-center">Recent Classified Images</h3>
+            <h3 className="text-center align-center heading">Recent Classified Images</h3>
             {loading ? 
-                <div className = "spiner"><CircularProgress color="secondary" /></div>        :
-            imgs.map((item: any) => 
-               <div key={item.id}>
+                <div className = "spiner"><CircularProgress color="secondary" /></div>:
+            <div className="top">
+                <div className ="grid-container">
+                {imgs.map((item:any) =>
+                <div key={item.id} className ="grid-item">
                  <ImagesCard source = {item.picture} result={item.result}/>  
                </div>
-           )
-        }
-            
+               )}
+            </div>
+          </div>
+                }
         </>
     )
 }
